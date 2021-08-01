@@ -14,7 +14,8 @@ docker run --rm -i -v "$PWD":/data latex pdflatex sourabh_bajaj_resume.tex
 ### Preview
 
 ![Resume Screenshot](/resume_preview.png)
-![Resume Screenshot](/cv.pdf)
+
+![Resume pdf](/cv.pdf)
 
 ### License
 
