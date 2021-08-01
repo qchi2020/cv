@@ -13,12 +13,9 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+\usepackage[pdftex]{hyperref}
 \usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\input{glyphtounicode}
-
+\usepackage{ragged2e}
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
@@ -26,8 +23,8 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
@@ -43,9 +40,6 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
-
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[2]{
@@ -53,30 +47,23 @@
     \textbf{#1}{: #2 \vspace{-2pt}}
   }
 }
-
-% Just in case someone needs a heading that does not need to be in a list
-\newcommand{\resumeHeading}[4]{
-    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeSubSubheading}[2]{
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
-}
+ 
+\newcommand{\resumeItemm}[2]{
+  \item\small{
+    {#1}{#2 \vspace{-2pt}}
+  }
+}  
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\newcommand{\jsk}[2]{\resumeItemm{#1}\\{#2}\vspace{-4pt}} %For Reference section 
+
+
+\newcommand{\aff}[2]{
+  \item\small{
+    {#1}{#2 \vspace{-2pt}}
+  }
+}
+
 
 \renewcommand{\labelitemii}{$\circ$}
 
@@ -85,126 +72,372 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
+\usepackage{makecell}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\small #4}
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\jk}[2]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      {#1} & #2
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\msj}[2]{
+\vspace{-1pt}\item
+    \begin{tabular*}{0.96666\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      {#1} & #2
+    \end{tabular*}\vspace{-5pt}}
+    
+    
+\newcommand{\zk}[4]{
+\vspace{-1pt}\item
+    \begin{tabular*}{0.96666\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      {#1} & #2\\
+      {#3} & {#4}
+    \end{tabular*}\vspace{-5pt}}
+
+
+\newcommand{\heading}[2][\relax]{{#2}\hfill#1\par\nobreak}
+
+%\pagestyle{fancy}
+%\fancyhf{} % clear all header and footer fields
+%\fancyfoot{}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+%%\pagestyle{fancy}
+%\fancyhf{}
+%\fancyhead[L]{Curriculum Vitae}
+%\fancyhead[R]{Junaid S. Khan}
+%\fancyfoot[CE,CO]{\leftmark}
+%\fancyfoot[LE,RO]{\thepage}
+% 
+%\renewcommand{\headrulewidth}{2pt}
+%\renewcommand{\footrulewidth}{1pt}
 %-------------------------------------------
-%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%  CV STARTS HERE  %%%%%%
 
 
 \begin{document}
+%-----------------------------------------------%
 
-%----------HEADING-----------------
+%------------------- HEADING -------------------%
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-  \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+        \textbf{\LARGE Syed Hassan Abbas Bukhari}
+        & 
+        Email : \href{mailto:hassan@phys.qau.edu.pk}{hassan@phys.qau.edu.pk}\\
+        &
+        \href{mailto:18120009@lums.edu.pk}{18120009@lums.edu.pk\,\,\,\,\,}\\
+        {Taj Garh \& P.O Iqbalabad (64310), District  Rahim Yar Khan, Punjab, Pakistan.} 
+        & 
+        Mobile : +92--306--375--7284 \\
 \end{tabular*}
+%-----------------------------------------------%
 
 
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
+%------------------ EDUCATION ------------------%
+\begin{comment}
+\section{\textbf{Objective}}
+To utilize my teaching skills towards a challenging career in growth oriented and leading edge that will provide mutual benefits and where from I can utilize my capabilities to the fullest benefits of the organization and society.
+\end{comment}
+
+\section{\textbf{Education}}
+
+\resumeSubHeadingListStart
     \resumeSubheading
-      {Georgia Institute of Technology}{Atlanta, GA}
-      {Master of Science in Computer Science;  GPA: 4.00}{Aug. 2012 -- Dec. 2013}
+        {Lahore University of Management Sciences}{Lahore, Pakistan}
+            {\makecell[tl]{MS Physics(18-years);  CGPA: $3.75/4.00$ \\ Dissertation Title: Measurement-Induced Qubit Cooling \\ Dissertation Supervisor: Dr. Adam Zaman Chaudhry (Assistant Professor)}}{Jul. 2020}
+    
     \resumeSubheading
-      {Birla Institute of Technology and Science}{Pilani, India}
-      {Bachelor of Engineering in Electrical and Electronics;  GPA: 3.66 (9.15/10.0)}{Aug. 2008 -- July. 2012}
-  \resumeSubHeadingListEnd
-
-
-%-----------EXPERIENCE-----------------
-\section{Experience}
-  \resumeSubHeadingListStart
-
+        {Quaid-i-Azam University}{Islamabad , Pakistan}
+            {M.Sc. Physics(16-years); Percentage: $69 \%$}{May. 2018}
+    
     \resumeSubheading
-      {Google}{Mountain View, CA}
-      {Software Engineer}{Oct 2016 - Present}
-      \resumeItemListStart
-        \resumeItem{Tensorflow}
-          {TensorFlow is an open source software library for numerical computation using data flow graphs; primarily used for training deep learning models. Worked on APIs and performance for training models on Tensor Processing Units (TPU).}
-        \resumeItem{Apache Beam}
-          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines, as well as a set of language-specific SDKs for constructing pipelines and runners.}
-      \resumeItemListEnd
-      
-% --------Multiple Positions Heading------------
-%    \resumeSubSubheading
-%     {Software Engineer I}{Oct 2014 - Sep 2016}
-%     \resumeItemListStart
-%        \resumeItem{Apache Beam}
-%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%     \resumeItemListEnd
-%    \resumeSubHeadingListEnd
-%-------------------------------------------
-
-    \resumeSubheading
-      {Coursera}{Mountain View, CA}
-      {Senior Software Engineer}{Jan 2014 - Oct 2016}
-      \resumeItemListStart
-        \resumeItem{Notifications}
-          {Service for sending email, push and in-app notifications. Involved in features such as delivery time optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-        \resumeItem{Nostos}
-          {Bulk data processing and injection service from Hadoop to Cassandra and provides a thin REST layer on top for serving offline computed data online.}
-        \resumeItem{Workflows}
-          {Dataduct an open source workflow framework to create and manage data pipelines leveraging reusables patterns to expedite developer productivity.}
-        \resumeItem{Data Collection}
-          {Designed the internal survey and crowd sourcing platform which allowed for creating various tasks for crowd sourcing or embedding surveys across the Coursera platform.}
-        \resumeItem{Dev Environment}
-          {Analytics environment based on docker and AWS, standardized the python and R dependencies. Wrote the core libraries that are shared by all data scientists.}
-        \resumeItem{Data Warehousing}
-          {Setup, schema design and management of Amazon Redshift. Built an internal app for access to the data using a web interface. Dataduct integration for daily ETL injection into Redshift.}
-        \resumeItem{Recommendations}
-          {Core service for all recommendation systems at Coursera, currently used on the homepage and throughout the content discovery process. Worked on both offline training and online serving.}
-        \resumeItem{Content Discovery}
-          {Improved content discovery by building a new onboarding experience on coursera. Using this to personalize the search and browse experience. Also worked on ranking and indexing improvements.}
-        \resumeItem{Course Dashboards}
-          {Instructor dashboards and learner surveying tools, which helped instructors run their class better by providing data on Assignments and Learner Activity.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Lucena Research}{Atlanta, GA}
-      {Data Scientist}{Summer 2012 and 2013}
-      \resumeItemListStart
-        \resumeItem{Portfolio Management}
-          {Created models for portfolio hedging,  portfolio optimization and price forecasting. Also creating a strategy backtesting engine used for simulating and backtesting strategies.}
-        \resumeItem{QuantDesk}
-          {Python backend for a web application used by hedge fund managers for portfolio management.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Georgia Institute of Technology}{Atlanta, GA}
-      {Research and Teaching Assistant}{Jan 2012 - Dec 2013}
-      \resumeItemListStart
-        \resumeItem{Research Assistant - Machine Learning}
-          {Research on machine learning for portfolio hedging and replication algorithms. Modeling low-risk \& continuous-return strategies. Developed the python library QSTK.}
-        \resumeItem{Teaching Assistant - Computational Investing}
-          {The online course on Coursera, had more than 100,000 students enrolled. It was featured on the 11 Alive News and the Atlanta Journal Constitution. Involved in creating assignment, exams and conducting recitation sessions. Also taught the on-campus version of the course.}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{QuantSoftware Toolkit}
-      {Open source python library for financial data analysis and machine learning for finance.}
-    \resumeSubItem{Github Visualization}
-      {Data Visualization of Git Log data using D3 to analyze project trends over time.}
-    \resumeSubItem{Recommendation System}
-      {Music and Movie recommender systems using collaborative filtering on public datasets.}
-    \resumeSubItem{Mac Setup}
-      {Book that gives step by step instructions on setting up developer environment on Mac OS.}
-  \resumeSubHeadingListEnd
-
+        {Islamia University Bahawalpur}{Bahawal Pur, Pakistan}
+            {B.Sc. Physics, Mathematics (14-years); Percentage: $83\%$}{Aug. 2015}
+\resumeSubHeadingListEnd
+%-------------Standardized Tests---------------%
 %
-%--------PROGRAMMING SKILLS------------
-%\section{Programming Skills}
-%  \resumeSubHeadingListStart
-%    \item{
-%      \textbf{Languages}{: Scala, Python, Javascript, C++, SQL, Java}
-%      \hfill
-%      \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
-%    }
-%  \resumeSubHeadingListEnd
+%\section{\textbf{Standardized Tests}}
+%
+%\resumeSubHeadingListStart
+%    \resumeSubheading
+%        {GRE Physics Test}{}
+%            {\makecell[tl]{\textbf{Scaled Score: $990$} \\ %\textbf{Percentile below: $95$}}}{}
+%\resumeSubHeadingListEnd
+%-----------------------------------------------%
+
+%----------- RESEARCH EXPERIENCE ---------------%
+\section{\textbf{Research Interests}}
+        \resumeSubHeadingListStart
+    \resumeSubheading
+        {\normalfont Open Quantum Systems, Condensed Matter Theory, Quantum Information, Quantum Optics}{}{\normalfont }{}
+        \resumeSubHeadingListEnd
+%-----------------------------------------------%
+
+%\section{\textbf{Publication}}
+%\resumeSubHeadingListStart
+%    \resumeSubheading
+%      {\normalfont Zia, M., Mirza, A.R., and Chaudhry, A.Z., (2020). Master Equations with initial system-environment }{\\ \normalfont correlations}      
+%        {Manuscript in preparation}{}
+%    \resumeSubHeadingListEnd
+%----------- RESEARCH EXPERIENCE ---------------%
+\section{\textbf{Research Experience}}
+\resumeSubHeadingListStart
+    \resumeSubheading
+      {Research Assistant}{Jul. 2019 -- Dec. 2019}      
+            {Department of Physics, Lahore University of Management Sciences}{Lahore, Pakistan}
+        \resumeItemListStart
+            \aff{Studied the effect of measurements on an open quantum system.}{}
+            \aff{Studied and developed an optimal way for measurement-induced qubit cooling to perform less noisy computation.}{}
+            \resumeItemListEnd
+    \resumeSubheading
+        {Master's Dissertation}{Sep. 2019 -- July. 2020}      
+            {Lahore University of Management Sciences}{Lahore, Pakistan}
+        \resumeItemListStart
+            \aff{\normalfont Measurement-Induced Qubit Cooling.}{}
+        \resumeItemListEnd
+\resumeSubHeadingListEnd
+%-----------------------------------------------%
+
+%------------- TEACHING EXPERIENCE -------------%
+\section{\textbf{Teaching Experience}}
+  \resumeSubHeadingListStart   
+    \resumeSubheading
+      {Lahore University of Management Sciences}{Lahore, Pakistan}
+      {Graduate Teaching Assistant}{Spring 2020}
+      \resumeItemListStart
+        \resumeItem{Modern Physics}
+          {My job was to conduct weekly tutorials to help out students with the subject material and grade quizzes and assignments and later on everything was done online due to COVID-19.}
+      \resumeItemListEnd
+\resumeSubheading
+      {Lahore University of Management Sciences}{Lahore, Pakistan}
+      {Lab Instructor}{Spring 2019}
+      \resumeItemListStart
+        \resumeItem{Physics Laboratory}
+          {My job was to assist students in laboratory experiments and grade lab notebooks.}
+\resumeItemListEnd
+  \resumeSubHeadingListEnd
+%-----------------------------------------------%
+\section{\textbf{Job Experience}}
+  \resumeSubHeadingListStart   
+    \resumeSubheading
+      {IQ era}{Lahore, Pakistan}
+      {Instructional Designer}{Dec. 2020 -- Present}
+      \resumeItemListStart
+        \resumeItem{Physics}
+          {IQ era is a US-based education startup. At IQ era, I am a Physics team leader and work with international colleagues from the UK, Hong Kong, Canada, and the USA. We are working on a non-traditional education system that mainly covers Cambridge's international education system.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+%-----------------------------------------------%
 
 
-%-------------------------------------------
+%------------------- PROJECTS ------------------%
+\section{\textbf{Academic Research Projects}}
+
+\resumeSubHeadingListStart   
+            \msj{\textbf{Quantum computing using Qiskit} }{\textit{Summer 2020}}
+            \resumeItemListStart
+            \aff{In this international summer school. I worked on the topic given below and implemented algorithms based on quantum circuits using Qiskit to run it on a quantum simulator and IBM quantum computer.
+.
+            \begin{enumerate}
+                \item Grover’s Search Algorithm and Quantum Oracle
+                \item Quantum Phase Estimation
+                \item Single-Qubit and Multi-Qubit States, Quantum Teleportation
+                \item Shor’s Algorithm
+                \item Quantum Error Correction
+                \item Qubit Spectroscopy
+                \item Quantum Chemistry
+            \end{enumerate}}{}
+            \resumeItemListEnd
+        \msj{\textbf{Measuring the value of Boltzmann constant}}{\textit{Fall 2018}}
+            \resumeItemListStart
+            \aff{I studied the statistical behavior of the random motion of particles suspended in a fluid resulting from their collision with the fast-moving molecules in the fluid, and Boltzmann's constant was measured by observing the Brownian motion of polystyrene spheres in water.}{}
+            \resumeItemListEnd
+        
+            \msj{\textbf{Magnetic Sensor } }{\textit{Fall 2018}}
+            \resumeItemListStart
+            \aff{In this project, we studied the effect of magnets by measuring the magnetic field (transverse and longitudinal) using calibrated TMR sensors.}{}
+            \resumeItemListEnd
+        \msj{\textbf{Power Method}}{\textit{Fall 2017}}
+            \resumeItemListStart
+            \aff{It was a theoretical and computational project. In this project, we developed FORTRAN language code to calculate the eigenvalue and eigenvector of a given $n \times n$ matrix.}{}
+            \resumeItemListEnd
+            
+        
+        \msj{\textbf{Skin Effect} }{\textit{Spring 2017}}
+            \resumeItemListStart
+            \aff{In this project, we studied the skin effect. We made an experimental setup for calculating the skin effect and its parameters like the resistance of transmission cables at different frequencies. We also observed and studied the decrease of a magnetic field as it penetrates a thickness of metal and decreases current with the depth of wire.}{}
+            \resumeItemListEnd
+        
+\resumeSubHeadingListEnd
+%-----------------------------------------------%
+
+
+
+
+
+%---------- Certifications/Trainings ----------%
+ \section{\textbf{Summer Schools/Workshops}}
+
+\resumeSubHeadingListStart
+     \resumeSubheading
+        {$4^{th}$ National Symposium on Laser Matter Interaction}{Pakistan}            {Participant}{Sept. 2020}
+     \resumeSubheading
+        {Qiskit Global Summer School}{Pakistan}
+            {Participant \& Lab Student}{July. 2020}
+    
+    \resumeSubheading
+        {Workshop on In isotropic media and meta materials}{Islamabad, Pakistan}
+            {Participant}{Jan. 2019}
+\resumeSubHeadingListEnd 
+
+
+%-----------------------------------------------%
+
+
+%---------------- Presentations ----------------%
+%\section{\textbf{Presentations}}
+
+%\resumeSubHeadingListStart
+%    \zk{Master Equations with Initial Correlations}
+ %       {\textit{Dec. 2018}}{Department of Physics, Lahore University of Management Sciences, Lahore}{}
+    
+%    \zk{Flavor Physics and its anomalies}
+ %       {\textit{Aug. 2018}}{7$^{th}$ School on LHC Physics, National Centre for Physics, Islamabad}{}
+
+%    \zk{Axion as a Dark Matter Candidate (course requirement)}
+%        {\textit{May. 2018}}{Department of Physics, Lahore University of Management Sciences, Lahore}{}
+        
+%    \zk{Dilute Magnetic Semiconductors (course requirement)}
+%        {\textit{May. 2018}}{Department of Physics, Lahore University of Management Sciences, Lahore}{}
+    
+%    \zk{Measuring the lifetime of cosmic ray muons(course requirement)}
+%        {\textit{Feb. 2017}}{Department of Physics, Lahore University of Management Sciences, Lahore}{}
+    
+%    \zk{Grover’s Search Algorithm(course requirement)}
+%        {\textit{Dec. 2016}}{Department of Physics, Quaid-i-Azam University, Islamabad}{}
+
+   % \zk{20 Strangest Things Physics Taught Us}
+%        {\textit{Dec. 2016}}{Department of Physics, Quaid-i-Azam University, Islamabad}{}
+
+%    \zk{The Black Hole Information Paradox}
+%        {\textit{Nov. 2016}}{Department of Physics, Quaid-i-Azam University, Islamabad}{}
+
+%    \zk{From Classical to Quantum Computation }
+%        {\textit{Nov. 2016}}{Department of Physics, Quaid-i-Azam University, Islamabad}{}
+    
+ %   \zk{Insight to Dark Matter}
+  %      {\textit{Oct. 2016}}{Department of Physics, Quaid-i-Azam University, Islamabad}{}
+    
+ %   \zk{What is Light?}
+ %       {\textit{Oct. 2016}}{Department of Physics, Quaid-i-Azam University, Islamabad}{}    
+%\resumeSubHeadingListEnd
+%-----------------------------------------------%
+
+
+
+%---------- Professional Affiliations ----------%
+\section{\textbf{Professional Affiliations}}
+
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+        {Official YouTube Channel Quaid-i-Azam University}{Islamabad, Pakistan}
+            {Founder \& Producer}{Jan. 2017}
+
+    \resumeSubheading
+        {QAU Physics Club}{Islamabad, Pakistan}
+            {Co-Founder}{Sep. 2016 \textbf{--} Present}
+              \resumeSubheading
+        {SPIE Student Chapter LUMS}{Lahore, Pakistan}
+            {Member}{Jan. 2019 \textbf{--} Dec. 2019}
+              \resumeSubheading
+      {SPIE Student Chapter LUMS}{Lahore, Pakistan}
+            {Treasurer}{Spring 2020}
+                \resumeSubheading
+      {Lahore Science Mela}{Lahore, Pakistan}
+            {Demonstrator}{Oct. 2019}
+            \resumeSubheading
+      {Q Pakistan}{Pakistan}
+            {Member}{Oct. 2020}
+    \resumeSubHeadingListEnd
+    
+
+%-----------------------------------------------%
+
+
+%----------- Awards, Grants & Honours ----------%
+\section{\textbf{Awards \& Honours}}
+
+\resumeSubHeadingListStart
+        
+
+        \msj{Placed in Dean's Honour Roll for MS in Physics at LUMS.}{\textit{2020}}
+        \msj{Granted $100\%$ merit scholarship for MS in Physics at LUMS.}{\textit{2018-20}}
+        \msj{Got the first position in bachelor of science at Khawaja Fareed Govt. P/G College.}{\textit{2015}}
+        
+        %\msj{1$^{st}$ position in B.Sc at PGC.}{\textit{2014}}
+\resumeSubHeadingListEnd
+%-----------------------------------------------%
+
+
+%----------- General Publications --------------%
+\begin{comment}
+
+\section{\textbf{General Publications}}
+
+\resumeItemListStart
+        \aff{Azam, Muhammad Bilal. ``Nayi Hukoomat aur Scienci Shaoor''. HumSub. Published $05$ August $2018$, from \url{http://www.humsub.com.pk/157453/bilal-azam/}}{}
+        
+        \aff{Azam, Muhammad Bilal. ``An Interview with Dr. Muhammed Sameed (CERN, Switzerland)''. HumSub. Published $05$ April $2018$, from \url{http://en.humsub.com.pk/258/muhammad-bilal-azam/}}{}
+        
+        \aff{Azam, Muhammad Bilal. ``Sciencii Maidaan me Pakistani Science-daanoun ke Karnaamey''. Dawn News Television. Published $26$ July $2017$, from \url{https://www.dawnnews.tv/news/1061688}}{}
+
+        \aff{Azam, Muhammad Bilal. ``Dr. I. H. Usmani: The Common Heritage of All Mankind''. Technology Times 2015. Web. 15 July 2016.}{}
+
+        \aff{Ahmad, Rehan and Azam, Muhammad Bilal. Physics (Intermediate Part--I,II) Chapter Wise Solution of Punjab Boards. Sahiwal: A Plus, $2016$. Print.}{}
+\resumeItemListEnd
+\end{comment}
+%-----------------------------------------------%
+
+
+%------------ Skills and Interests -------------%
+\section{\textbf{Skills and Interests}}
+
+\resumeSubHeadingListStart
+    \begin{comment}
+    \resumeSubItem{Laboratory}
+        {Dimensional Analysis, Notebook Skills, Logger Pro, Mach\textbf{--}Zehnder Interferometer, Fabry\textbf{--}Perot Interferometer, alpha\textbf{--}SE Ellipsometer, Oscilloscope.}
+        \end{comment}
+    \resumeSubItem{Programming}
+        {FORTRAN, Python (Qiskit, Qutip), Linux, {\LaTeX}.}
+        
+         \resumeSubItem{Softwares}
+        {Mathematica, MATLAB, Microsoft Office, OriginPro, PeakFit, LabView.}
+        \resumeSubItem{Interest}
+        {Table Tennis, Swimming, Chess, Music, Physics Simulations, Psychology, Magic}
+\resumeSubHeadingListEnd
+%-----------------------------------------------%
+
+
+%----------------- REFERENCES ------------------%
+\section{\textbf{Reference}}
+
+\resumeSubHeadingListStart
+    \jsk{Dr. Adam Zaman Chaudhry}
+            {Assistant Professor and Chairman of Physics Department, LUMS, Lahore. \\Email: \href{mailto:adam.zaman@lums.edu.pk}{adam.zaman@lums.edu.pk}}
+    \jsk{Dr. Ata Ulhaq}
+            {Assistant Professor of Physics, LUMS, Lahore. \\.
+            Email: \href{mailto:ata.haq@lums.edu.pk}{ata.haq@lums.edu.pk}}        
+\resumeSubHeadingListEnd
+%-----------------------------------------------%
 \end{document}
